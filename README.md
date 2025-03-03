@@ -1,6 +1,6 @@
 # MyNYT
 
-MyNYT is a library that accesses the publicaly availble RSS feeds of the New York Times and converts it to an easy-to-digest daily summary.
+MyNYT is a library that accesses the publically availble RSS feeds of the New York Times and converts it to an easy-to-digest daily summary.
 
 ## Features
 
