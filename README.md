@@ -85,7 +85,10 @@ IMPORTANT: You may not use this feature to send emails to other parties or for c
 From the NYTimes:
 
 ```
-We allow the use of NYTimes.com RSS feeds for personal use in a news reader or as part of a non-commercial blog. We require proper format and attribution whenever New York Times content is posted on your website, and we reserve the right to require that you cease distributing NYTimes.com content. Please read the Terms and Conditions for complete instructions. Commercial use of the Service is prohibited without prior written permission from NYT which may be requested via email to: nytlg-sales@nytimes.com.
+We allow the use of NYTimes.com RSS feeds for personal use in a news reader or as part of a non-commercial blog.
+We require proper format and attribution whenever New York Times content is posted on your website, and we reserve the right to require that you cease distributing NYTimes.com content.
+Please read the Terms and Conditions for complete instructions.
+Commercial use of the Service is prohibited without prior written permission from NYT which may be requested via email to: nytlg-sales@nytimes.com.
 ```
 
 #### Timezone
