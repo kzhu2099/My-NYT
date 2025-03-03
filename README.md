@@ -1,6 +1,6 @@
 # MyNYT
 
-MyNYT is a library that accesses the publicly available RSS feeds of the New York Times and converts it to an easy-to-digest daily summary.
+mynyt is a library that accesses the publicly available RSS feeds of the New York Times and converts it to an easy-to-digest daily summary.
 
 ## Features
 
@@ -183,7 +183,7 @@ The default is set to this:
 The parameter ```html_body``` is what the stories are, each with their own paragraph headers.
 
 ## Disclaimer
-This library, MyNYT, retrieves publicly available news content via RSS feeds from the New York Times (NYT).
+This library, mynyt, retrieves publicly available news content via RSS feeds from the New York Times (NYT).
 All news articles and content are owned by the New York Times and are subject to their Terms of Service.
 By using this library, you agree to comply with the New York Times' Terms of Service and all relevant copyright laws.
 
