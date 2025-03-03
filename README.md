@@ -33,7 +33,7 @@ news.remove_duplicates()
 
 news.trim_to_length(length = 12)
 
-news.convert_news_to_html(image_story_html_template = None, imageless_story_html_template = None, div_styles = None)
+news.convert_news_to_html(image_story_html_template = None, imageless_story_html_template = None, main_div_styles = None)
 
 news.send_email(recipient = 'your.email@gmail.com', main_subject = 'Daily NYT', timezone = 'US/Eastern', main_html_template = None, story_html_body = None)
 ```
@@ -53,6 +53,20 @@ This link will direct you to your app passwords: https://myaccount.google.com/ap
 They grant COMPLETE access to your account. If you do not have a Google Account or wish to use a different "junk" email, simply create a new google account.
 
 Further help can be found here: https://support.google.com/mail/answer/185833?hl=en#:~:text=Important:%20To%20create%20an%20app,create%20a%20new%20app%20password.
+
+## Crontab
+
+Because this library provides a news summary of the most recent events, you can use it with a Crontab.
+Crontab is availble on Unix devices and is not for Windows users.
+
+The format of min hour dom mon dow allows us to have the following command:
+
+x y * * * ... will run this command at y:x o' clock (if x was 30 and y was 18, it would be at 6:30 PM)
+
+If you would like to have a daily email at 7:00 AM to run main.py, you could have the following command:
+```
+0 7 * * * cd /home/path/to/your/directory && python3 main.py
+```
 
 ### Basic Customization
 
