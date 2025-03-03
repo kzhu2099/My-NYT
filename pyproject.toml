@@ -1,0 +1,20 @@
+[build-system]
+requires = [
+    'setuptools',
+    'wheel'
+]
+build-backend = 'setuptools.build_meta'
+
+[project]
+name = 'mynews'
+version = '0.1.0'
+description = 'A Python Library for Your Daily News'
+authors = [{ name = 'Kevin Zhu', email = 'kzhu2099@gmail.com' }]
+license = { file = 'LICENSE' }
+readme = 'README.md'
+dependencies = [
+    'requests'
+]
+
+[tool.setuptools]
+packages = ['mynews']
