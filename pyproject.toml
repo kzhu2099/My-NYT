@@ -5,9 +5,9 @@ build-backend = 'setuptools.build_meta'
 [project]
 name = 'mynyt'
 
-version = '1.0.3'
+version = '1.0.4'
 
-description = 'A library that accesses the publically availble RSS of NYT and converts it to an easy-to-digest daily summary.'
+description = 'A library that accesses the publicly available RSS of NYT and converts it to an easy-to-digest daily summary.'
 
 authors = [{name = 'Kevin Zhu', email = 'kzhu2099@gmail.com'}]
 

@@ -1,6 +1,6 @@
 # MyNYT
 
-MyNYT is a library that accesses the publically availble RSS feeds of the New York Times and converts it to an easy-to-digest daily summary.
+MyNYT is a library that accesses the publicly available RSS feeds of the New York Times and converts it to an easy-to-digest daily summary.
 
 ## Features
 
@@ -45,7 +45,7 @@ For it to work, the user will need to create an app password.
 
 1) To create an app password, you need 2-Step Verification on your Google Account.
 
-This can be through a variety of methods, whether it be through thye Google Authenticator App, a secondary email, or a phone number
+This can be through a variety of methods, whether it be through the Google Authenticator App, a secondary email, or a phone number
 
 2) Create the app password
 
@@ -57,7 +57,7 @@ Further help can be found here: https://support.google.com/mail/answer/185833?hl
 ## Crontab
 
 Because this library provides a news summary of the most recent events, you can use it with a Crontab.
-Crontab is availble on Unix devices and is not for Windows users.
+Crontab is available on Unix devices and is not for Windows users.
 
 The format of ```min hour dom mon dow``` allows us to have the following command:
 
@@ -167,7 +167,6 @@ The default is set to this:
 <!DOCTYPE html>
 <html>
     <head>
-        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
         <style>
             {style_sheet}
         </style>

@@ -1,5 +1,5 @@
 # This code was created by Kevin Zhu
-# However, all news is obtained from publicly availble RSS feeds of the New York Times
+# However, all news is obtained from publicly available RSS feeds of the New York Times
 # The content is copyrighted and should be used in accordance with NYT's terms of service.
 # Please see the README for more information or the NYT's terms of service: https://help.nytimes.com/hc/en-us/articles/115014893428-Terms-of-Service#b
 
@@ -123,7 +123,7 @@ p, div {
 
         Args:
             image_story_html_template (string) a custom template for stories with images. Must have a formattable link, title, description, authors, and article_image_link.
-            imageless_story_html_template (string) a custom template for storeis without images. Must have a formattable link, title, description, and authors.
+            imageless_story_html_template (string) a custom template for stories without images. Must have a formattable link, title, description, and authors.
             main_div_styles (string) a custom style for the outer div.
         '''
 
@@ -201,7 +201,7 @@ p, div {
         self.html_body += f'''<div style = '{main_div_styles}'>'''
         self.html_body += ''.join(all_html_content)
         self.html_body += '</div>'
-        
+
         return self.html_body
 
     def send_email(self, recipient, main_subject = 'Daily NYT', timezone = 'US/Eastern', main_html_template = None, story_html_body = None):
@@ -213,7 +213,7 @@ p, div {
             main_subject (string) the main title of the email (excluding date/time)
             timezone (string) the appropriate pytz name
             main_html_template (string) custom template for the main email
-            story_html_body (string) defults to self.html_body, custom html to send in the email.
+            story_html_body (string) defaults to self.html_body, custom html to send in the email.
         '''
 
         try:
@@ -227,7 +227,6 @@ p, div {
 <!DOCTYPE html>
 <html>
     <head>
-        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
         <style>
             {style_sheet}
         </style>
