@@ -1,3 +1,8 @@
+# This code was created by Kevin Zhu
+# However, all news is obtained from publicly availble RSS feeds of the New York Times
+# The content is copyrighted and should be used in accordance with NYT's terms of service.
+# Please see the README for more information or the NYT's terms of service: https://help.nytimes.com/hc/en-us/articles/115014893428-Terms-of-Service#b
+
 import datetime
 import itertools
 import smtplib
@@ -28,10 +33,6 @@ h1 {
     font-size: 15px;
 }
 
-h2 {
-    font-size: 14px;
-}
-
 p, div {
     font-size: 12px;
 }
@@ -40,7 +41,7 @@ p, div {
         self.sender_email = sender_email
         self.sender_email_app_password = sender_email_app_password
 
-    def get_all_stories(self):
+    def get_all_stories(self, rotate_through_feeds = True):
         feeds = []
         for rss_link in self.rss_links:
             response = requests.get(rss_link)
@@ -48,13 +49,23 @@ p, div {
 
         self.all_stories = []
 
-        for sublist in itertools.zip_longest(*[feed.entries for feed in feeds], fillvalue = None):
-            for item in sublist:
-                if item:
-                    self.all_stories.append(item)
+        if rotate_through_feeds:
+            for sublist in itertools.zip_longest(*[feed.entries for feed in feeds], fillvalue = None):
+                for item in sublist:
+                    if item:
+                        self.all_stories.append(item)
 
-                else:
-                    continue
+                    else:
+                        continue
+
+        else:
+            for feed in feeds:
+                for item in feed.entries:
+                    if item:
+                        self.all_stories.append(item)
+
+                    else:
+                        continue
 
         return self.all_stories
 
@@ -151,15 +162,15 @@ p, div {
         self.html_body += '</div>'
         return self.html_body
 
-    def send_email(self, recipients, main_subject = 'Daily NYT', timezone = None, html_template = None, html_body = None):
+    def send_email(self, recipient, main_subject = 'Daily NYT', timezone = 'US/Eastern', main_html_template = None, story_html_body = None):
         try:
             server = smtplib.SMTP('smtp.gmail.com', 587)
             server.ehlo()
             server.starttls()
             server.login(self.sender_email, self.sender_email_app_password)
 
-            html_body = html_body or self.html_body
-            html_template = html_template or '''\
+            html_body = story_html_body or self.html_body
+            html_template = main_html_template or '''\
 <!DOCTYPE html>
 <html>
     <head>
@@ -179,14 +190,14 @@ p, div {
 
             email = MIMEMultipart('related')
             email['From'] = self.sender_email
-            latest_time = datetime.datetime.now(pytz.timezone(timezone or 'US/Eastern'))
+            latest_time = datetime.datetime.now(pytz.timezone(timezone))
             current_date = datetime.datetime.strftime(latest_time, '%b %d, %Y')
             email_time = datetime.datetime.strftime(latest_time, '%I:%M:%S %p %Z')
 
             full_subject = f'{main_subject} @ {current_date} {email_time}'
             print(f'({full_subject})')
 
-            email['To'] = ', '.join(recipients)
+            email['To'] = recipient
             email['Subject'] = full_subject
 
             full_html = html_template.format(
@@ -196,7 +207,7 @@ p, div {
 
             email.attach(MIMEText(full_html, 'html'))
 
-            server.sendmail(self.sender_email, recipients, email.as_string())
+            server.sendmail(self.sender_email, [recipient], email.as_string())
 
             time.sleep(3)
 
