@@ -3,7 +3,7 @@ requires = ['setuptools', 'wheel']
 build-backend = 'setuptools.build_meta'
 
 [project]
-name = 'mynews'
+name = 'mynyt'
 
 version = '1.0.0'
 
