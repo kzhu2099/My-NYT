@@ -28,8 +28,8 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = 'https://github.com/kzhu2099/MyNYT'
-Issues = 'https://github.com/kzhu2099/MyNYT/issues'
+Homepage = 'https://github.com/kzhu2099/My-NYT'
+Issues = 'https://github.com/kzhu2099/My-NYT/issues'
 
 [tool.setuptools]
 packages = ['mynyt']
