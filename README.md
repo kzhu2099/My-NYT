@@ -11,7 +11,7 @@ MyNYT is a library that accesses the publically availble RSS feeds of the New Yo
 
 ## Installation
 
-To install MyNYT, use pip -install mynyt
+To install MyNYT, use ```pip -install mynyt```
 
 ## Usage
 
@@ -59,11 +59,12 @@ Further help can be found here: https://support.google.com/mail/answer/185833?hl
 Because this library provides a news summary of the most recent events, you can use it with a Crontab.
 Crontab is availble on Unix devices and is not for Windows users.
 
-The format of min hour dom mon dow allows us to have the following command:
+The format of ```min hour dom mon dow``` allows us to have the following command:
 
-x y * * * ... will run this command at y:x o' clock (if x was 30 and y was 18, it would be at 6:30 PM)
+```x y * * * ...``` will run something at y:x o' clock (e.g.: if x was 30 and y was 18, it would be at 6:30 PM)
 
 If you would like to have a daily email at 7:00 AM to run main.py, you could have the following command:
+
 ```
 0 7 * * * cd /home/path/to/your/directory && python3 main.py
 ```
@@ -78,7 +79,7 @@ The parameter rss_links can be changed for what you want your news to be about. 
 
 #### recipient
 
-If you created a new Google Account, you can have the email recipient be your main email like: `main.email@other.com`
+If you created a new Google Account, you can have the email recipient be your main email like: ```main.email@other.com```
 IMPORTANT: You may not use this feature to send emails to other parties or for commercial use because it breaks the NYTimes Terms of Service.
 
 From the NYTimes:
@@ -89,7 +90,7 @@ We allow the use of NYTimes.com RSS feeds for personal use in a news reader or a
 
 #### Timezone
 
-If your timezone is not US/Eastern, you may change it to a different string that is a valid pytz timezone.
+If your timezone is not ```US/Eastern```, you may change it to a different string that is a valid pytz timezone.
 To find them:
 
 ```python
@@ -155,12 +156,13 @@ There are two templates for each story, one for ones with images and one for one
 <hr style = 'margin-left: 10px; margin-right: 10px; width: calc(100% - 20px);'>
 ```
 
-Note that the brackets are placeholders for the .format() function that is handled by the method. All of those must be included, and no more can be added.
+Note that the brackets are placeholders for the ```.format()``` function that is handled by the internal method. All of those parameters must be included, and no more can be added.
 
 #### main_html_template
 
 Similar to the images, this is a template for the entire email.
 The default is set to this:
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -178,7 +180,8 @@ The default is set to this:
     </body>
 </html>
 ```
-The HTML Body is what the stories are, each with their own paragraph headers.
+
+The parameter ```html_body``` is what the stories are, each with their own paragraph headers.
 
 ## Disclaimer
 This library, MyNYT, retrieves publicly available news content via RSS feeds from the New York Times (NYT).
