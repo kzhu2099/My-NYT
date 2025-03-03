@@ -27,15 +27,29 @@ news = MyNYT(
     style_sheet = None
 )
 
-news.get_all_stories(rotate_through_feeds = True)
+news.get_all_stories(
+    rotate_through_feeds = True
+)
 
 news.remove_duplicates()
 
-news.trim_to_length(length = 12)
+news.trim_to_length(
+    length = 12
+)
 
-news.convert_news_to_html(image_story_html_template = None, imageless_story_html_template = None, main_div_styles = None)
+news.convert_news_to_html(
+    image_story_html_template = None,
+    imageless_story_html_template = None,
+    main_div_styles = None
+)
 
-news.send_email(recipient = 'your.email@gmail.com', main_subject = 'Daily NYT', timezone = 'US/Eastern', main_html_template = None, story_html_body = None)
+news.send_email(
+    recipient = 'your.email@gmail.com',
+    main_subject = 'Daily NYT',
+    timezone = 'US/Eastern',
+    main_html_template = None,
+    story_html_body = None
+)
 ```
 
 ## Email Configuration
@@ -84,12 +98,10 @@ IMPORTANT: You may not use this feature to send emails to other parties or for c
 
 From the NYTimes:
 
-```
-We allow the use of NYTimes.com RSS feeds for personal use in a news reader or as part of a non-commercial blog.
+"We allow the use of NYTimes.com RSS feeds for personal use in a news reader or as part of a non-commercial blog.
 We require proper format and attribution whenever New York Times content is posted on your website, and we reserve the right to require that you cease distributing NYTimes.com content.
 Please read the Terms and Conditions for complete instructions.
-Commercial use of the Service is prohibited without prior written permission from NYT which may be requested via email to: nytlg-sales@nytimes.com.
-```
+Commercial use of the Service is prohibited without prior written permission from NYT which may be requested via email to: nytlg-sales@nytimes.com."
 
 #### Timezone
 
@@ -110,6 +122,7 @@ Advanced customization can be added for your own personal taste.
 The style sheet allows you to change the formatting and style of the email, like in regular HTML.
 
 It is preset as this:
+
 ```css
 * {
     margin: 0;
@@ -130,6 +143,7 @@ p, div {
 #### story_html_template
 
 There are two templates for each story, one for ones with images and one for ones without images.
+
 ```html
 <div style = 'display: flex; width: 100%; padding: 10px;'>
 <div style = 'width: 70%; margin-right: 10px;'>
