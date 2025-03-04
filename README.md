@@ -11,7 +11,7 @@ mynyt is a library that accesses the publicly available RSS feeds of the New Yor
 
 ## Installation
 
-To install MyNYT, use ```pip -install mynyt```
+To install MyNYT, use ```pip install mynyt```
 
 ## Usage
 

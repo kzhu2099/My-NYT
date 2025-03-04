@@ -275,8 +275,6 @@ p, div {
         finally:
             server.quit()
 
+# wordle
 class WordGuess:
-    pass
-
-class WordMake:
     pass
