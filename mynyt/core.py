@@ -56,8 +56,8 @@ p, div {
         Gets all stories of the rss feeds provided.
 
         Args:
-            rotate_through_feeds (boolean) transforms the result from
-            [a, a, b, b, c, c] to [a, b, c, a, b, c] providing variety
+            rotate_through_feeds (boolean) transforms the result:
+                [a, a, b, b, c, c] --> [a, b, c, a, b, c]
         '''
 
         feeds = []
@@ -87,45 +87,54 @@ p, div {
 
         return self.all_stories
 
-    def remove_duplicates(self):
+    def remove_duplicates(self, all_stories = None):
         '''
-        Removes duplicate stories based on the title.
+        Removes duplicate stories based on the title (all_stories --> stories)
+
+        Args:
+            all_stories (string) defaults to this instance's all_stories, the stories to use
         '''
 
         titles = []
-        initial_stories = self.all_stories[:]
-        self.all_stories = []
-        for story in initial_stories:
+        self.all_stories = all_stories or self.all_stories
+        self.stories = []
+
+        for story in self.all_stories:
             if story.title not in titles:
-                self.all_stories.append(story)
+                self.stories.append(story)
                 titles.append(story.title)
 
-        return self.all_stories
+        return self.stories
 
-    def trim_to_length(self, length):
+    def use_beginning(self, length, stories = None):
         '''
         Ensures that the amount of stories is <= length.
 
         Args:
+            stories (string) defaults to this instance's stories, the stories to use.
             length (int) the desired amount of stories
         '''
 
-        if len(self.all_stories) > length:
-            self.all_stories = self.all_stories[:length]
+        self.stories = stories or self.stories
+        if len(self.stories) > length:
+            self.stories = self.stories[:length]
 
-        return self.all_stories
+        return self.stories
 
-    def convert_news_to_html(self, image_story_html_template = None, imageless_story_html_template = None, main_div_styles = None):
+    def convert_news_to_html(self, stories = None, image_story_html_template = None, imageless_story_html_template = None, main_div_styles = None):
         '''
         Turns the stories into a list of previews in HTML, with images first followed by imageless.
         Uses flex for two columns with the text at 70% of the width and the image at 30% of the width.
         Each story is separated by a line and put into a scrollbar.
 
         Args:
-            image_story_html_template (string) a custom template for stories with images. Must have a formattable link, title, description, authors, and article_image_link.
-            imageless_story_html_template (string) a custom template for stories without images. Must have a formattable link, title, description, and authors.
-            main_div_styles (string) a custom style for the outer div.
+            stories (string) defaults to this instance's stories, the stories to use
+            image_story_html_template (string) a custom template for stories with images. Must have a formattable link, title, description, authors, and article_image_link
+            imageless_story_html_template (string) a custom template for stories without images. Must have a formattable link, title, description, and authors
+            main_div_styles (string) a custom style for the outer div
         '''
+
+        self.stories = stories or self.stories
 
         image_story_html_template = image_story_html_template or '''\
 <div style = 'display: flex; width: 100%; padding: 10px;'>
@@ -204,7 +213,7 @@ p, div {
 
         return self.html_body
 
-    def send_email(self, recipient, main_subject = 'Daily NYT', timezone = 'US/Eastern', main_html_template = None, story_html_body = None):
+    def send_email(self, recipient, main_subject = 'Daily NYT', timezone = 'US/Eastern', story_html_body = None, main_html_template = None):
         '''
         Attempts to send an email from the sender email to the recipient with a subject of main_subject @ Date Time.
 
@@ -212,8 +221,8 @@ p, div {
             recipient (string) the email of the recipient
             main_subject (string) the main title of the email (excluding date/time)
             timezone (string) the appropriate pytz name
-            main_html_template (string) custom template for the main email
             story_html_body (string) defaults to self.html_body, custom html to send in the email.
+            main_html_template (string) custom template for the main email
         '''
 
         try:
