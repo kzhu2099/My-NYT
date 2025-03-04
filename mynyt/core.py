@@ -106,7 +106,7 @@ p, div {
 
         return self.stories
 
-    def use_beginning(self, length, stories = None):
+    def trim_to_length(self, length, stories = None):
         '''
         Ensures that the amount of stories is <= length.
 
@@ -274,3 +274,9 @@ p, div {
 
         finally:
             server.quit()
+
+class WordGuess:
+    pass
+
+class WordMake:
+    pass
