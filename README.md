@@ -16,11 +16,49 @@ By making a Python library, anyone can easily customize their own NYT summary.
 
 ## Installation
 
-To install MyNYT, use pip: ```pip install mynyt```
+To install MyNYT, use pip: ```pip install mynyt```.
+
+However, many prefer to use a virtual environment.
+
+MacOS / Linux:
+
+```sh
+# make your desired directory
+mkdir /path/to/your/directory
+cd /path/to/your/directory
+
+# setup the .venv (or whatever you want to name it)
+pip install virtualenv
+python3 -m venv .venv
+
+# install mynyt
+source .venv/bin/activate
+pip install mynyt
+
+deactivate
+```
+
+Windows CMD:
+
+```sh
+# make your desired directory
+mkdir C:path\to\your\directory
+cd C:path\to\your\directory
+
+# setup the .venv (or whatever you want to name it)
+pip install virtualenv
+python3 -m venv .venv
+
+# install mynyt
+.venv\Scripts\activate
+pip install mynyt
+
+deactivate
+```
 
 ## Usage
 
-The most basic features don't require much work, but it is more difficult to send the emails.
+The most basic features can be found in the examples, but you must setup the emailing yourself (tutorial below).
 
 ```python
 from mynyt import MyNYT
@@ -78,14 +116,18 @@ They grant COMPLETE access to your account. If you do not have a Google Account 
 
 Further help can be found here: https://support.google.com/mail/answer/185833?hl=en#:~:text=Important:%20To%20create%20an%20app,create%20a%20new%20app%20password.
 
-## Crontab
+## Automatic Execution
+
+If you want a daily email with a snapshot of the NYT at a predetermined time, we have to use automation to make it happen.
+
+## Crontab: MacOS / Linux ONLY
 
 Because this library provides a news summary of the most recent events, you can use it with a Crontab.
 Crontab is available on Unix devices and is not for Windows users.
 
-The format of ```min hour dom mon dow``` allows us to have the following command:
+The format of ```minute hour day-of-month month day-of-week command``` allows us to have the following command:
 
-```x y * * * ...``` will run something at y:x o' clock (e.g.: if x was 30 and y was 18, it would be at 6:30 PM)
+```x y * * * ...``` will run at y:x o' clock (e.g.: if x was 30 and y was 18, it would be at 6:30 PM)
 
 If you would like to have a daily email at 7:00 AM to run main.py, you could have the following command:
 
@@ -99,7 +141,21 @@ For people that want to have two emails a day (at 7AM and 4PM), simply edit the 
 0 7,15 * * * cd /home/path/to/your/directory && .venv/bin/python3 main.py
 ```
 
+If you did not use a venv, simply replace ```.venv/bin/python3``` with your path to python, like ```/path/to/your/python3``` or just ```python3``` if it was added to your path..
+
 Visit https://crontab.guru/ to learn more.
+
+## Task Scheduler: Windows ONLY
+
+Windows users must take a different approach with Task Scheduler.
+
+Press Win + R, type taskschd.msc, and hit Enter.
+
+Create a basic task and name it, choosing your preferred frequency (like daily). The start time can also be chosen, something like 7AM.
+It will start a program, with the program ```C:\path\to\your\python.exe``` and argument ```C:\path\to\your\directory\main.py```.
+
+Visit https://learn.microsoft.com/en-us/windows/win32/taskschd/task-scheduler-start-page to learn more.
+
 ### Basic Customization
 
 There are many parameters that are easy to use as well as others that require a mentioning.
