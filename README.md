@@ -2,16 +2,21 @@
 
 mynyt is a library that accesses the publicly available RSS feeds of the New York Times and converts it to an easy-to-digest daily summary.
 
+Most users of the New York Times appreciate a quick and easy way to access news every day in the morning.
+However. they find it difficult to customize based on their individual needs and preferences.
+By making a Python library, anyone can easily customize their own NYT summary.
+
 ## Features
 
 - Collects news from different feeds of the NYT
 - Processes and orders them, removing duplicates by title
 - Converts it to a clean HTML
 - Sends it to your email
+- Allows for quick customization: feeds, emails, HTML, etc.
 
 ## Installation
 
-To install MyNYT, use ```pip install mynyt```
+To install MyNYT, use pip: ```pip install mynyt```
 
 ## Usage
 
@@ -88,13 +93,21 @@ If you would like to have a daily email at 7:00 AM to run main.py, you could hav
 0 7 * * * cd /home/path/to/your/directory && python3 main.py
 ```
 
+For people that want to have two emails a day (at 7AM and 4PM), simply edit the crontab:
+
+```
+0 7,15 * * * cd /home/path/to/your/directory && python3 main.py
+```
+
+Visit https://crontab.guru/ to learn more.
 ### Basic Customization
 
 There are many parameters that are easy to use as well as others that require a mentioning.
 
 #### rss_links
 
-The parameter rss_links can be changed for what you want your news to be about. Feeds can be found here: https://www.nytimes.com/rss
+The parameter rss_links can be changed for what you want your news to be about.
+Feeds can be found here: https://www.nytimes.com/rss
 
 #### recipient
 
