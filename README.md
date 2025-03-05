@@ -90,13 +90,13 @@ The format of ```min hour dom mon dow``` allows us to have the following command
 If you would like to have a daily email at 7:00 AM to run main.py, you could have the following command:
 
 ```
-0 7 * * * cd /home/path/to/your/directory && python3 main.py
+0 7 * * * cd /home/path/to/your/directory && .venv/bin/python3 main.py
 ```
 
 For people that want to have two emails a day (at 7AM and 4PM), simply edit the crontab:
 
 ```
-0 7,15 * * * cd /home/path/to/your/directory && python3 main.py
+0 7,15 * * * cd /home/path/to/your/directory && .venv/bin/python3 main.py
 ```
 
 Visit https://crontab.guru/ to learn more.
