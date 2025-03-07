@@ -6,6 +6,8 @@ Most users of the New York Times appreciate a quick and easy way to access news 
 However. they find it difficult to customize based on their individual needs and preferences.
 By making a Python library, anyone can easily customize their own NYT summary.
 
+[![PyPI Downloads](https://static.pepy.tech/badge/mynyt)](https://pepy.tech/projects/mynyt)
+
 ## Features
 
 - Collects news from different feeds of the NYT
