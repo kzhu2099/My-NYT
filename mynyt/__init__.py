@@ -1,1 +1,7 @@
-from .core import MyNYT
+from .MyNYT import (
+    MyNYT
+)
+
+from .WordGuess import (
+    WordGuess
+)

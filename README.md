@@ -1,10 +1,12 @@
 # MyNYT
 
-mynyt is a library that accesses the publicly available RSS feeds of the New York Times and converts it to an easy-to-digest daily summary.
+mynyt is a library brings the New York Times to you.
 
 Most users of the New York Times appreciate a quick and easy way to access news every day in the morning.
 However. they find it difficult to customize based on their individual needs and preferences.
 By making a Python library, anyone can easily customize their own NYT summary.
+
+Furthermore, this library provides its own built in Wordle-esque WordGame!
 
 [![PyPI Downloads](https://static.pepy.tech/badge/mynyt)](https://pepy.tech/projects/mynyt)
 
@@ -15,6 +17,7 @@ By making a Python library, anyone can easily customize their own NYT summary.
 - Converts it to a clean HTML
 - Sends it to your email
 - Allows for quick customization: feeds, emails, HTML, etc.
+- Wordle-like WordGame
 
 ## Installation
 
@@ -275,9 +278,34 @@ The default is set to this:
 
 The parameter ```html_body``` is what the stories are, each with their own paragraph headers.
 
+## WordGame / Wordle
+
+This game aims to mimick Wordle with thousands of available words.
+To use it is very simple! Simply run:
+
+```python
+from mynyt import WordGuess
+
+game = WordGuess()
+
+game.play()
+```
+
+Guesses/words are not case sensitive.
+
+You may pass in a custom word to guess for but it must be 5 letters, just like guesses.
+
+It also must be part of the ```guess_list```. This is a list of words that are valid guesses, while ```word_list``` is a list of words that are valid starting points.
+Randomly generated words are from the latter, because they are more well known. However, if you want to use a custom target, it must be part of guess_list.
+
+To check if a word falls into either, use ```is_valid_word``` or ```is_valid_guess```
+
+This means that you can guess with ```xylyl``` but it won't ever appear unless if you use ```game.play('xylyl')```.
+
 ## Disclaimer
+
 This library, mynyt, retrieves publicly available news content via RSS feeds from the New York Times (NYT).
-All news articles and content are owned by the New York Times and are subject to their Terms of Service.
+All news articles and content, including Wordle, are owned by the New York Times and are subject to their Terms of Service.
 By using this library, you agree to comply with the New York Times' Terms of Service and all relevant copyright laws.
 
 The content provided by this library is intended for personal (like sending emails to yourself) and non-commercial use only.

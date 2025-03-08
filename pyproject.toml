@@ -5,7 +5,7 @@ build-backend = 'setuptools.build_meta'
 [project]
 name = 'mynyt'
 
-version = '1.1.5'
+version = '1.1.6'
 
 description = 'A library that accesses the publicly available RSS of the NYT and converts it to an easy-to-digest daily summary.'
 
@@ -32,7 +32,7 @@ classifiers = [
 
 readme = 'README.md'
 
-requires-python = '>=3.8'
+requires-python = '>=3.9'
 
 dependencies = [
     'feedparser',
@@ -44,6 +44,8 @@ dependencies = [
 Homepage = 'https://github.com/kzhu2099/My-NYT'
 Issues = 'https://github.com/kzhu2099/My-NYT/issues'
 
+[tool.setuptools.package-data]
+'mynyt.data' = ['*']
 [tool.setuptools]
 packages = ['mynyt']
 license-files = []
