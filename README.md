@@ -13,6 +13,8 @@ Furthermore, this library provides its own built in Wordle!
 
 [![PyPI Downloads](https://static.pepy.tech/badge/mynyt)](https://pepy.tech/projects/mynyt)
 
+Author: Kevin Zhu
+
 ## Features
 
 - Collects news from different feeds of the NYT
