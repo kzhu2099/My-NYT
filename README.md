@@ -8,8 +8,8 @@ By making a Python library, anyone can easily customize their own NYT summary.
 
 Furthermore, this library provides its own built in Wordle!
 
-HomePage: https://github.com/kzhu2099/My-NYT
-Issues: https://github.com/kzhu2099/My-NYT/issues
+- HomePage: https://github.com/kzhu2099/My-NYT
+- Issues: https://github.com/kzhu2099/My-NYT/issues
 
 [![PyPI Downloads](https://static.pepy.tech/badge/mynyt)](https://pepy.tech/projects/mynyt)
 
