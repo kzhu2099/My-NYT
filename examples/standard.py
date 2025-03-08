@@ -1,3 +1,7 @@
+'''
+Author: Kevin Zhu
+'''
+
 from mynyt import MyNYT
 
 if __name__ == '__main__':

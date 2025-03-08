@@ -6,7 +6,10 @@ Most users of the New York Times appreciate a quick and easy way to access news 
 However. they find it difficult to customize based on their individual needs and preferences.
 By making a Python library, anyone can easily customize their own NYT summary.
 
-Furthermore, this library provides its own built in Wordle-esque WordGame!
+Furthermore, this library provides its own built in Wordle!
+
+HomePage: https://github.com/kzhu2099/My-NYT
+Issues: https://github.com/kzhu2099/My-NYT/issues
 
 [![PyPI Downloads](https://static.pepy.tech/badge/mynyt)](https://pepy.tech/projects/mynyt)
 
@@ -17,7 +20,7 @@ Furthermore, this library provides its own built in Wordle-esque WordGame!
 - Converts it to a clean HTML
 - Sends it to your email
 - Allows for quick customization: feeds, emails, HTML, etc.
-- Wordle-like WordGame
+- Wordle class
 
 ## Installation
 
@@ -68,44 +71,26 @@ The most basic features can be found in the examples, but you must setup the ema
 ```python
 from mynyt import MyNYT
 
-if __name__ == '__main__':
-    news = MyNYT(
-        'your.email@gmail.com',
-        'your appp pass word',
-        rss_links = None,
-        style_sheet = None
-    )
+news = MyNYT('your.email@gmail.com', 'your appp pass word')
 
-    news.get_all_stories(
-        rotate_through_feeds = True
-    )
+news.get_all_stories()
 
-    news.remove_duplicates(
-        all_stories = None,
-    )
+news.remove_duplicates(all_stories = None)
 
-    news.trim_to_length(
-        length = 12,
-        stories = None
-    )
+news.trim_to_length(length = 12)
 
-    news.convert_news_to_html(
-        stories = None,
-        image_story_html_template = None,
-        imageless_story_html_template = None,
-        main_div_styles = None
-    )
+news.convert_news_to_html()
 
-    news.send_email(
-        recipient = 'your.email@gmail.com',
-        main_subject = 'Daily NYT',
-        timezone = 'US/Eastern',
-        story_html_body = None,
-        main_html_template = None
-    )
+news.send_email(recipient = 'your.email@gmail.com')
 ```
 
-## Email Configuration
+See ```CUSTOMIZATION.md``` for information on customization or examples for it in action.
+
+## Tutorials
+
+This project brings in many features that require tutorials on how to use.
+
+### Emailing
 
 Currently, there is only support for gmail. This library uses smtplib to send emails.
 For it to work, the user will need to create an app password.
@@ -121,11 +106,11 @@ They grant COMPLETE access to your account. If you do not have a Google Account 
 
 Further help can be found here: https://support.google.com/mail/answer/185833?hl=en#:~:text=Important:%20To%20create%20an%20app,create%20a%20new%20app%20password.
 
-## Automatic Execution
+### Automatic Execution
 
 If you want a daily email with a snapshot of the NYT at a predetermined time, we have to use automation to make it happen.
 
-## Crontab: MacOS / Linux ONLY
+#### Crontab: MacOS / Linux ONLY
 
 Because this library provides a news summary of the most recent events, you can use it with a Crontab.
 Crontab is available on Unix devices and is not for Windows users.
@@ -150,7 +135,7 @@ If you did not use a venv, simply replace ```.venv/bin/python3``` with your path
 
 Visit https://crontab.guru/ to learn more.
 
-## Task Scheduler: Windows ONLY
+#### Task Scheduler: Windows ONLY
 
 Windows users must take a different approach with Task Scheduler.
 
@@ -161,132 +146,15 @@ It will start a program, with the program ```C:\path\to\your\python.exe``` and a
 
 Visit https://learn.microsoft.com/en-us/windows/win32/taskschd/task-scheduler-start-page to learn more.
 
-### Basic Customization
-
-There are many parameters that are easy to use as well as others that require a mentioning.
-
-#### rss_links
-
-The parameter rss_links can be changed for what you want your news to be about.
-Feeds can be found here: https://www.nytimes.com/rss
-
-#### recipient
-
-If you created a new Google Account, you can have the email recipient be your main email like: ```main.email@other.com```
-IMPORTANT: You may not use this feature to send emails to other parties or for commercial use because it breaks the NYTimes Terms of Service.
-
-From the NYTimes:
-
-"We allow the use of NYTimes.com RSS feeds for personal use in a news reader or as part of a non-commercial blog.
-We require proper format and attribution whenever New York Times content is posted on your website, and we reserve the right to require that you cease distributing NYTimes.com content.
-Please read the Terms and Conditions for complete instructions.
-Commercial use of the Service is prohibited without prior written permission from NYT which may be requested via email to: nytlg-sales@nytimes.com."
-
-#### Timezone
-
-If your timezone is not ```US/Eastern```, you may change it to a different string that is a valid pytz timezone.
-To find them:
-
-```python
-import pytz
-print(pytz.all_timezones())
-```
-
-### Advanced Customization
-
-Advanced customization can be added for your own personal taste.
-
-#### style_sheet
-
-The style sheet allows you to change the formatting and style of the email, like in regular HTML.
-
-It is preset as this:
-
-```css
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Verdana, sans-serif;
-}
-
-h1 {
-    font-size: 15px;
-}
-
-p, div {
-    font-size: 12px;
-}
-```
-
-#### story_html_template
-
-There are two templates for each story, one for ones with images and one for ones without images.
-
-```html
-<div style = 'display: flex; width: 100%; padding: 10px;'>
-<div style = 'width: 70%; margin-right: 10px;'>
-    <h3><a href='{link}'>{title}</a></h3>
-    <p><br>
-    {description}<br><br>
-    {authors}<br>
-    </p>
-</div>
-<div style = 'width: 30%;'>
-    <img src = '{article_image_link}' alt = 'HTML Image' width = '100%'>
-</div>
-</div>
-<hr style = 'margin-left: 10px; margin-right: 10px; width: calc(100% - 20px);'>
-```
-
-```html
-<div style = 'width: 100%; padding: 10px;'>
-    <div>
-        <h3><a href='{link}'>{title}</a></h3>
-        <p><br>
-        {description}<br><br>
-        {authors}<br>
-        </p>
-    </div>
-</div>
-<hr style = 'margin-left: 10px; margin-right: 10px; width: calc(100% - 20px);'>
-```
-
-Note that the brackets are placeholders for the ```.format()``` function that is handled by the internal method. All of those parameters must be included, and no more can be added.
-
-#### main_html_template
-
-Similar to the images, this is a template for the entire email.
-The default is set to this:
-
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <style>
-            {style_sheet}
-        </style>
-    </head>
-    <body>
-        <h1>
-            Daily News Summary of the New York Times
-        </h1>
-        {html_body}
-    </body>
-</html>
-```
-
-The parameter ```html_body``` is what the stories are, each with their own paragraph headers.
-
-## WordGame / Wordle
+## Wordle
 
 This game aims to mimick Wordle with thousands of available words.
 To use it is very simple! Simply run:
 
 ```python
-from mynyt import WordGuess
+from mynyt import Wordle
 
-game = WordGuess()
+game = Wordle()
 
 game.play()
 ```

@@ -5,7 +5,7 @@ build-backend = 'setuptools.build_meta'
 [project]
 name = 'mynyt'
 
-version = '1.1.9'
+version = '1.2.0'
 
 description = 'A library brings the New York Times to you.'
 

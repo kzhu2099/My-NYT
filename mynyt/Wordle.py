@@ -1,12 +1,20 @@
+'''
+Author: Kevin Zhu
+Wordle is owned by the NYT. This class aims to mimick its behavior for python users and is not the actual Wordle.
+Please visit https://www.nytimes.com/games/wordle/index.html to play the actual game online.
+'''
+
 import random
 import time
 
 from importlib.resources import open_text
 
-class WordGuess:
+class Wordle:
+
     '''
-    A class that mimicks the NYT's Wordle and allows for users to play.
+    A class that mimicks the NYT's Wordle and allows for users to play in Python.
     '''
+
     def __init__(self):
         self.word_list = []
         with open_text('mynyt.data', 'possible_words.txt') as file:
@@ -26,11 +34,20 @@ class WordGuess:
         self.RESET = '\033[0m'
 
     def play(self, custom_word = None):
+
         '''
-        Plays the game!
-        Args:
-            custom_word (string) a 5-letter word in the list of vaid words to use as the target word.
+        Plays the game Wordle, with the target either being a random word or custom_word!
+
+        Parameters
+        ----------
+        string custom_word, optional:
+            a 5-letter word in the list of vaid words to use as the target word. If it is not valid, defaults to a random word.
+
+        Returns
+        -------
+            A boolean of whether or not the player won.
         '''
+
         if custom_word and not self.is_valid_guess(custom_word):
             print('Invalid custom word, using a default one instead.')
             custom_word = None
@@ -69,27 +86,56 @@ class WordGuess:
         return False
 
     def is_valid_word(self, word):
+
         '''
-        Determines if this word is valid (if it has 5 letters and is inside the WORD list)
-        Args:
-            word (string) word to check
+        Determines if this word is valid (if it has 5 letters and is inside the WORD list).
+
+        Parameters
+        ----------
+        string word:
+            the word to check
+
+        Returns
+        -------
+        boolean
+            whether or not this word is valid
         '''
+
         return len(word) != 5 or word.lower() not in self.word_list
 
     def is_valid_guess(self, word):
         '''
-        Determines if this guess is valid (if it has 5 letters and is inside the GUESS list)
-        Args:
-            word (string) word to check
+        Determines if this guess is valid (if it has 5 letters and is inside the GUESS list).
+
+        Parameters
+        ----------
+        string word:
+            the word to check
+
+        Returns
+        -------
+        boolean
+            whether or not this word is valid
         '''
+
         return len(word) != 5 or word.lower() not in self.guess_list
 
     def guess_word(self, guess, target_word = None):
+
         '''
-        Returns a list of ANSCII colors depending on each character's value.
-        Args:
-            guess (string) a valid 5 letter word
-            target_word (string) an optional word to use for the target (defaults to self.word)
+        Determines whether how close the guess is to the target word.
+
+        Parameters
+        ----------
+        string guess:
+            a valid 5 letter word
+        string target_word, optional:
+            an optional word to use for the target (defaults to self.word)
+
+        Returns
+        -------
+        list
+            a list of colors depending on each character's value
         '''
 
         word = target_word or self.word

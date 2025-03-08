@@ -1,6 +1,10 @@
-from mynyt import WordGuess
+'''
+Author: Kevin Zhu
+'''
 
-game = WordGuess()
+from mynyt import Wordle
+
+game = Wordle()
 
 game.play('hello')
 
