@@ -1,5 +1,7 @@
 '''
 Author: Kevin Zhu
+
+Advanced example of MyNYT showing slight customization and how to do it.
 '''
 
 from mynyt import MyNYT

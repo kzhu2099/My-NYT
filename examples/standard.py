@@ -1,5 +1,7 @@
 '''
 Author: Kevin Zhu
+
+Basic example of MyNYT showing the default usage.
 '''
 
 from mynyt import MyNYT

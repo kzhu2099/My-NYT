@@ -172,6 +172,8 @@ To check if a word falls into either, use ```is_valid_word``` or ```is_valid_gue
 
 This means that you can guess with ```xylyl``` but it won't ever appear unless if you use ```game.play('xylyl')```.
 
+See examples for more information.
+
 ## Disclaimer
 
 This library, mynyt, retrieves publicly available news content via RSS feeds from the New York Times (NYT).

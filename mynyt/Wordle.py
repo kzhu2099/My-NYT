@@ -55,7 +55,7 @@ class Wordle:
         self.word = custom_word or self.word_list[random.randint(0, len(self.word_list))]
         self.word = self.word.upper()
 
-        print('Welcome to WordGuess!')
+        print('Welcome to Wordle!')
 
         for i in range(6):
             while True:

@@ -1,5 +1,7 @@
 '''
 Author: Kevin Zhu
+
+Basic example for Wordle showing what to do and what not to do.
 '''
 
 from mynyt import Wordle
