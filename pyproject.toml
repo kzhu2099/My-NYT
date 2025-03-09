@@ -7,7 +7,7 @@ name = 'mynyt'
 
 version = '1.2.3'
 
-description = 'A library that brings the New York Times to you.'
+description = 'a library that brings the New York Times to you with rss feeds and emails.'
 
 authors = [{name = 'Kevin Zhu'}, {email = 'kzhu2099@gmail.com'}]
 maintainers = [{name = 'Kevin Zhu'}, {email = 'kzhu2099@gmail.com'}]
@@ -45,9 +45,6 @@ dependencies = [
 [project.urls]
 Homepage = 'https://github.com/kzhu2099/My-NYT'
 Issues = 'https://github.com/kzhu2099/My-NYT/issues'
-
-[tool.setuptools.package-data]
-'mynyt.data' = ['*']
 
 [tool.setuptools]
 packages = ['mynyt']

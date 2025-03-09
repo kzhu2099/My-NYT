@@ -1,12 +1,10 @@
-# MyNYT
+# mywordle
 
-mynyt is a library that brings the New York Times to you.
+mynyt is a library that brings the New York Times to you with rss feeds and emails.
 
 Most users of the New York Times appreciate a quick and easy way to access news every day in the morning.
 However. they find it difficult to customize based on their individual needs and preferences.
 By making a Python library, anyone can easily customize their own NYT summary.
-
-Furthermore, this library provides its own built in Wordle!
 
 - HomePage: https://github.com/kzhu2099/My-NYT
 - Issues: https://github.com/kzhu2099/My-NYT/issues
@@ -22,15 +20,14 @@ Author: Kevin Zhu
 - Converts it to a clean HTML
 - Sends it to your email
 - Allows for quick customization: feeds, emails, HTML, etc.
-- Wordle class
 
 ## Installation
 
-To install MyNYT, use pip: ```pip install mynyt```.
+To install mynyt, use pip: ```pip install mynyt```.
 
 However, many prefer to use a virtual environment.
 
-MacOS / Linux:
+macOS / Linux:
 
 ```sh
 # make your desired directory
@@ -112,7 +109,7 @@ Further help can be found here: https://support.google.com/mail/answer/185833?hl
 
 If you want a daily email with a snapshot of the NYT at a predetermined time, we have to use automation to make it happen.
 
-#### Crontab: MacOS / Linux ONLY
+#### Crontab: macOS / Linux ONLY
 
 Because this library provides a news summary of the most recent events, you can use it with a Crontab.
 Crontab is available on Unix devices and is not for Windows users.
@@ -147,40 +144,6 @@ Create a basic task and name it, choosing your preferred frequency (like daily).
 It will start a program, with the program ```C:\path\to\your\python.exe``` and argument ```C:\path\to\your\directory\main.py```.
 
 Visit https://learn.microsoft.com/en-us/windows/win32/taskschd/task-scheduler-start-page to learn more.
-
-## Wordle
-
-Wordle is a game that is now owned by the NYT.
-The aim is to guess a 5-letter word within 6 attempts.
-When you guess the word, you will be given a color-coded result with the following key:
-
-- Green is the correct letter in the correct spot
-- Yellow is the correct letter but it is in a different spot
-- Gray/White means that the letter is not in the word.
-
-This game aims to mimic Wordle with thousands of available words.
-To use it is very simple! Simply run:
-
-```python
-from mynyt import Wordle
-
-game = Wordle()
-
-game.play()
-```
-
-Guesses/words are not case sensitive.
-
-You may pass in a custom word to guess for but it must be 5 letters, just like guesses.
-
-It also must be part of the ```guess_list```. This is a list of words that are valid guesses, while ```word_list``` is a list of words that are valid starting points.
-Randomly generated words are from the latter, because they are more well known. However, if you want to use a custom target, it must be part of guess_list.
-
-To check if a word falls into either, use ```is_valid_word``` or ```is_valid_guess```
-
-This means that you can guess with ```xylyl``` but it won't ever appear unless if you use ```game.play('xylyl')```.
-
-See examples for more information.
 
 ## Disclaimer
 
