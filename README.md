@@ -1,4 +1,4 @@
-# mywordle
+# mynyt
 
 mynyt is a library that brings the New York Times to you with rss feeds and emails.
 
