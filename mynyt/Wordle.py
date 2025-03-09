@@ -13,6 +13,14 @@ class Wordle:
 
     '''
     A class that mimicks the NYT's Wordle and allows for users to play in Python.
+
+    The aim is to guess a 5-letter word within 6 attempts.
+    When you guess the word, you will be given a color-coded result with the following key:
+
+    - Green is the correct letter in the correct spot
+    - Yellow is the correct letter but it is in a different spot
+    - Gray/White means that the letter is not in the word.
+
     '''
 
     def __init__(self):
@@ -55,7 +63,7 @@ class Wordle:
         self.word = custom_word or self.word_list[random.randint(0, len(self.word_list))]
         self.word = self.word.upper()
 
-        print('Welcome to Wordle!')
+        print('The word is ready!')
 
         for i in range(6):
             while True:

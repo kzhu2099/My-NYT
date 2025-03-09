@@ -150,6 +150,14 @@ Visit https://learn.microsoft.com/en-us/windows/win32/taskschd/task-scheduler-st
 
 ## Wordle
 
+Wordle is a game that is now owned by the NYT.
+The aim is to guess a 5-letter word within 6 attempts.
+When you guess the word, you will be given a color-coded result with the following key:
+
+- Green is the correct letter in the correct spot
+- Yellow is the correct letter but it is in a different spot
+- Gray/White means that the letter is not in the word.
+
 This game aims to mimick Wordle with thousands of available words.
 To use it is very simple! Simply run:
 
