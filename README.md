@@ -1,6 +1,6 @@
 # MyNYT
 
-mynyt is a library brings the New York Times to you.
+mynyt is a library that brings the New York Times to you.
 
 Most users of the New York Times appreciate a quick and easy way to access news every day in the morning.
 However. they find it difficult to customize based on their individual needs and preferences.
@@ -158,7 +158,7 @@ When you guess the word, you will be given a color-coded result with the followi
 - Yellow is the correct letter but it is in a different spot
 - Gray/White means that the letter is not in the word.
 
-This game aims to mimick Wordle with thousands of available words.
+This game aims to mimic Wordle with thousands of available words.
 To use it is very simple! Simply run:
 
 ```python
@@ -185,8 +185,10 @@ See examples for more information.
 ## Disclaimer
 
 This library, mynyt, retrieves publicly available news content via RSS feeds from the New York Times (NYT).
-All news articles and content, including Wordle, are owned by the New York Times and are subject to their Terms of Service.
+All news articles and content, are owned by the New York Times and are subject to their Terms of Service.
 By using this library, you agree to comply with the New York Times' Terms of Service and all relevant copyright laws.
+
+Wordle is owned by the NYT. This library provides a version of Wordle that mimics its behavior for personal and non-commercial use.
 
 The content provided by this library is intended for personal (like sending emails to yourself) and non-commercial use only.
 Redistribution, modification, or commercial use of the content retrieved from NYT is prohibited unless explicitly allowed by the New York Times.

@@ -1,6 +1,6 @@
 '''
 Author: Kevin Zhu
-Wordle is owned by the NYT. This class aims to mimick its behavior for python users and is not the actual Wordle.
+Wordle is owned by the NYT. This class aims to mimic its behavior for python users and is not the actual Wordle.
 Please visit https://www.nytimes.com/games/wordle/index.html to play the actual game online.
 '''
 
@@ -12,7 +12,7 @@ from importlib.resources import open_text
 class Wordle:
 
     '''
-    A class that mimicks the NYT's Wordle and allows for users to play in Python.
+    A class that provides a game like Wordle and allows for users to play in Python.
 
     The aim is to guess a 5-letter word within 6 attempts.
     When you guess the word, you will be given a color-coded result with the following key:
