@@ -252,7 +252,7 @@ p, div {
 
         return self.html_body
 
-    def send_email(self, recipient, main_subject = 'Daily NYT', timezone = 'US/Eastern', story_html_body = None, main_html_template = None):
+    def send_email(self, recipient, server_info = ('smtp.gmail.com', 587), main_subject = 'Daily NYT', timezone = 'US/Eastern', story_html_body = None, main_html_template = None):
 
         '''
         Attempts to send an email from the sender email to the recipient with a subject of main_subject @ Date Time.
@@ -272,7 +272,8 @@ p, div {
         '''
 
         try:
-            server = smtplib.SMTP('smtp.gmail.com', 587)
+            print('Connecting to Server...')
+            server = smtplib.SMTP(*server_info)
             server.ehlo()
             server.starttls()
             server.login(self.sender_email, self.sender_email_app_password)
@@ -317,6 +318,9 @@ p, div {
             server.sendmail(self.sender_email, [recipient], email.as_string())
 
             time.sleep(3)
+
+        except Exception as e:
+            print(f'Error encountered when sending email: {e}')
 
         finally:
             server.quit()

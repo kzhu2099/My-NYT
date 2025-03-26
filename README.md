@@ -91,19 +91,35 @@ This project brings in many features that require tutorials on how to use.
 
 ### Emailing
 
-Currently, there is only support for gmail. This library uses smtplib to send emails.
-For it to work, the user will need to create an app password.
+This library uses smtplib to send emails.
+Both Google and Outlook supports sending through the SMTP protocol for Python.
 
-1) To create an app password, you need 2-Step Verification on your Google Account.
+Gmail: `(smtp.gmail.com, 587)`
 
-This can be through a variety of methods, whether it be through the Google Authenticator App, a secondary email, or a phone number
+Outlook: `(smtp.office365.com, 587)`
 
-2) Create the app password
+You may provide this to server info depending on your needs.
 
-This link will direct you to your app passwords: https://myaccount.google.com/apppasswords.
-They grant COMPLETE access to your account. If you do not have a Google Account or wish to use a different "junk" email, simply create a new google account.
+For either to work, the user will need to create an app password.
 
-Further help can be found here: https://support.google.com/mail/answer/185833?hl=en#:~:text=Important:%20To%20create%20an%20app,create%20a%20new%20app%20password.
+First, to create an app password, you need 2-Step Verification on your account.
+
+This can be through a variety of methods, for both Gmail and Outlook. They both have their own authenticator apps and allow secondary emails or phone numbers.
+
+Then, you need to make the app password.
+
+These links will take you to the page to create an app password after you have 2FA enabled.
+
+Gmail: https://myaccount.google.com/apppasswords
+
+Outlook: https://go.microsoft.com/fwlink/?linkid=2274139
+
+They only appear once and will grant complete access to your account!! You can always make more. Finally, copy and paste the app password into the instantiation for MyNYT.
+
+Further help can be found here:
+Gmail: https://support.google.com/mail/answer/185833?hl=en
+
+Outlook: https://support.microsoft.com/en-us/account-billing/how-to-get-and-use-app-passwords-5896ed9b-4263-e681-128a-a6f2979a7944
 
 ### Automatic Execution
 
