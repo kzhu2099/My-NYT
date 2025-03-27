@@ -5,7 +5,7 @@ build-backend = 'setuptools.build_meta'
 [project]
 name = 'mynyt'
 
-version = '1.4.1'
+version = '1.4.2'
 
 description = 'a library that brings the New York Times to you with rss feeds and emails'
 
@@ -39,7 +39,8 @@ requires-python = '>= 3.9'
 dependencies = [
     'feedparser',
     'requests',
-    'pytz'
+    'pytz',
+    'kzutil'
 ]
 
 [project.urls]

@@ -17,6 +17,8 @@ import feedparser
 import pytz
 import requests
 
+from kzutil import send_email
+
 class MyNYT:
     def __init__(self, sender_email, sender_email_app_password, rss_links = None, style_sheet = None):
 
@@ -25,17 +27,22 @@ class MyNYT:
 
         Parameters
         ----------
-            sender_email: the email of the sender
-            sender_email_app_password: the app password of the sender email
-            rss_links: all of the NYT RSS feeds to use
-            style_sheet: a custom style sheet in CSS format
+            string sender_email:
+                the email of the sender
+            string sender_email_app_password:
+                the app password of the sender email
+            string rss_links:
+                all of the NYT RSS feeds to use
+            string style_sheet:
+                a custom style sheet in CSS format
         '''
 
         self.rss_links = rss_links or [
             'https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml',
         ]
 
-        self.style_sheet = style_sheet or '''\
+        self.style_sheet = style_sheet or \
+'''
 * {
     margin: 0;
     padding: 0;
@@ -261,6 +268,8 @@ p, div {
         ----------
         string recipient:
             the email of the recipient
+        tuple server_info, defaults to ('smtp.gmail.com', 587):
+            the server name and the port to use
         string main_subject, optional:
             the main title of the email (excluding date/time)
         string timezone, optional:
@@ -271,15 +280,8 @@ p, div {
             custom template for the main email
         '''
 
-        try:
-            print('Connecting to Server...')
-            server = smtplib.SMTP(*server_info)
-            server.ehlo()
-            server.starttls()
-            server.login(self.sender_email, self.sender_email_app_password)
-
-            html_body = story_html_body or self.html_body
-            html_template = main_html_template or '''\
+        html_body = story_html_body or self.html_body
+        html_template = main_html_template or '''\
 <!DOCTYPE html>
 <html>
     <head>
@@ -296,31 +298,9 @@ p, div {
 </html>
 '''
 
-            email = MIMEMultipart('related')
-            email['From'] = self.sender_email
-            latest_time = datetime.datetime.now(pytz.timezone(timezone))
-            current_date = datetime.datetime.strftime(latest_time, '%b %d, %Y')
-            email_time = datetime.datetime.strftime(latest_time, '%I:%M:%S %p %Z')
+        full_html = html_template.format(
+            style_sheet = self.style_sheet,
+            html_body = html_body
+        )
 
-            full_subject = f'{main_subject} @ {current_date} {email_time}'
-            print(f'({full_subject})')
-
-            email['To'] = recipient
-            email['Subject'] = full_subject
-
-            full_html = html_template.format(
-                style_sheet = self.style_sheet,
-                html_body = html_body
-            )
-
-            email.attach(MIMEText(full_html, 'html'))
-
-            server.sendmail(self.sender_email, [recipient], email.as_string())
-
-            time.sleep(3)
-
-        except Exception as e:
-            print(f'Error encountered when sending email: {e}')
-
-        finally:
-            server.quit()
+        send_email(self.sender_email, self.sender_email_app_password, recipient, main_subject, full_html, server_info, timezone)
