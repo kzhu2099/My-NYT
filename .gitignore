@@ -7,7 +7,7 @@ __pycache__/
 build/
 dist/
 *.egg-info/
-/tests
+tests/
 
 .DS_Store  # macOS
 Thumbs.db  # Windows
