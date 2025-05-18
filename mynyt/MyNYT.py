@@ -212,7 +212,7 @@ p, div {
 
         all_html_content = []
         imageless_stories = []
-        for story in self.all_stories:
+        for story in self.stories:
             if 'media_content' in story:
                 article_image_link = story.media_content[0]['url']
 
