@@ -1,6 +1,6 @@
 # mynyt
 
-mynyt is a package that brings the New York Times to you with rss feeds and emails.
+`mynyt` is a package that brings the New York Times to you with rss feeds and emails.
 
 Most users of the New York Times appreciate a quick and easy way to access news every day in the morning.
 However. they find it difficult to customize based on their individual needs and preferences.
@@ -9,7 +9,7 @@ By making a Python package, anyone can easily customize their own NYT summary.
 - HomePage: https://github.com/kzhu2099/My-NYT
 - Issues: https://github.com/kzhu2099/My-NYT/issues
 
-[![PyPI Downloads](https://static.pepy.tech/badge/mynyt)](https://pepy.tech/projects/mynyt)
+[![PyPI Downloads](https://static.pepy.tech/badge/mynyt)](https://pepy.tech/projects/mynyt) ![PyPI version](https://img.shields.io/pypi/v/mynyt.svg)
 
 Author: Kevin Zhu
 
@@ -23,7 +23,7 @@ Author: Kevin Zhu
 
 ## Installation
 
-To install mynyt, use pip: ```pip install mynyt```.
+To install `mynyt`, use pip: ```pip install mynyt```.
 
 However, many prefer to use a virtual environment.
 
