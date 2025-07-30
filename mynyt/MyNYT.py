@@ -23,7 +23,7 @@ class MyNYT:
     def __init__(self, sender_email, sender_email_app_password, rss_links = None, style_sheet = None):
 
         '''
-        The main class for the mynyt library. It has the news/rss/summary functionality.
+        The main class for the mynyt package. It has the news/rss/summary functionality.
 
         Parameters
         ----------

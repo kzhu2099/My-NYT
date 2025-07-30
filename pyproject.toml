@@ -5,9 +5,9 @@ build-backend = 'setuptools.build_meta'
 [project]
 name = 'mynyt'
 
-version = '1.4.4'
+version = '1.4.5'
 
-description = 'a library that brings the New York Times to you with rss feeds and emails'
+description = 'a package that brings the New York Times to you with rss feeds and emails'
 
 authors = [{name = 'Kevin Zhu'}, {email = 'kzhu2099@gmail.com'}]
 maintainers = [{name = 'Kevin Zhu'}, {email = 'kzhu2099@gmail.com'}]

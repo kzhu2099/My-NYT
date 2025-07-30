@@ -1,10 +1,10 @@
 # mynyt
 
-mynyt is a library that brings the New York Times to you with rss feeds and emails.
+mynyt is a package that brings the New York Times to you with rss feeds and emails.
 
 Most users of the New York Times appreciate a quick and easy way to access news every day in the morning.
 However. they find it difficult to customize based on their individual needs and preferences.
-By making a Python library, anyone can easily customize their own NYT summary.
+By making a Python package, anyone can easily customize their own NYT summary.
 
 - HomePage: https://github.com/kzhu2099/My-NYT
 - Issues: https://github.com/kzhu2099/My-NYT/issues
@@ -91,7 +91,7 @@ This project brings in many features that require tutorials on how to use.
 
 ### Emailing
 
-This library uses smtplib to send emails.
+This package uses smtplib to send emails.
 Both Google and Outlook supports sending through the SMTP protocol for Python.
 
 Gmail: `(smtp.gmail.com, 587)`
@@ -127,7 +127,7 @@ If you want a daily email with a snapshot of the NYT at a predetermined time, we
 
 #### Crontab: macOS / Linux ONLY
 
-Because this library provides a news summary of the most recent events, you can use it with a Crontab.
+Because this package provides a news summary of the most recent events, you can use it with a Crontab.
 Crontab is available on Unix devices and is not for Windows users.
 
 The format of ```minute hour day-of-month month day-of-week command``` allows us to have the following command:
@@ -163,13 +163,13 @@ Visit https://learn.microsoft.com/en-us/windows/win32/taskschd/task-scheduler-st
 
 ## Disclaimer
 
-This library, mynyt, retrieves publicly available news content via RSS feeds from the New York Times (NYT).
+This package, mynyt, retrieves publicly available news content via RSS feeds from the New York Times (NYT).
 All news articles and content, are owned by the New York Times and are subject to their Terms of Service.
-By using this library, you agree to comply with the New York Times' Terms of Service and all relevant copyright laws.
+By using this package, you agree to comply with the New York Times' Terms of Service and all relevant copyright laws.
 
-Wordle is owned by the NYT. This library provides a version of Wordle that mimics its behavior for personal and non-commercial use.
+Wordle is owned by the NYT. This package provides a version of Wordle that mimics its behavior for personal and non-commercial use.
 
-The content provided by this library is intended for personal (like sending emails to yourself) and non-commercial use only.
+The content provided by this package is intended for personal (like sending emails to yourself) and non-commercial use only.
 Redistribution, modification, or commercial use of the content retrieved from NYT is prohibited unless explicitly allowed by the New York Times.
 
 ## License
